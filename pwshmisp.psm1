@@ -1,5 +1,5 @@
-$psmisp  = @(Get-ChildItem -Path $PSScriptRoot\psmisp\*.ps1 -ErrorAction SilentlyContinue)
-foreach ($import in @($psmisp))
+$pwshmisp  = @(Get-ChildItem -Path $PSScriptRoot\pwshmisp\*.ps1 -ErrorAction SilentlyContinue)
+foreach ($import in @($pwshmisp))
 {
     try
     {
