@@ -12,7 +12,7 @@
 RootModule = 'pwshmisp.psm1'
 
 # Version number of this module.
-ModuleVersion = '1.0.0'
+ModuleVersion = '1.0.1'
 
 # Supported PSEditions
 CompatiblePSEditions = @('Core', 'Desktop')
@@ -95,7 +95,7 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        Tags = @('MISP', 'API', 'Threat Intelligence', 'Security', 'Cybersecurity', 'Threat Sharing', 'Threat Intelligence Platform', 'TIP', 'Upload Indicators', 'Microsoft Sentinel')
+        Tags = @('MISP', 'API', 'ThreatIntelligence', 'Security', 'Cybersecurity', 'ThreatSharing', 'ThreatIntelligencePlatform', 'TIP')
 
         # A URL to the license for this module.
         LicenseUri = 'https://github.com/lnfernux/pwshmisp/blob/main/LICENSE'

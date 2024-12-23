@@ -14,6 +14,6 @@ function Get-MISPTagByName {
       $return = Invoke-MISPRestMethod -Uri $MISPUrl -Headers $MISPAuthHeader -Method Get
     }
     $return = ($return.content | convertfrom-json)
-    Write-Host "Tag ID for $($Tag) is $($return.id)"
+    Write-Host "Tag ID for $($Tag) is $($return.Tag.id)"
     return $return
   }
