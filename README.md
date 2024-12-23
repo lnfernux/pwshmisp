@@ -23,12 +23,6 @@ Invoke-MISPRestMethod -Headers $AuthHeader -Method GET -Body $Data -Uri $URI
 
 Example of querying for a specific event tag:
 
-```json
-"event_tags": [
-    "tlp:amber"
-]
-```
-
 ```powershell
 $URI = "https://misp-instance/events/index"
 $Data = @"
