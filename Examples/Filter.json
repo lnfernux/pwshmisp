@@ -1,0 +1,18 @@
+{
+    "published": 1,
+    "tags": [
+        "infextest"
+    ],
+    "not_tags": [
+        "tlp:amber"
+    ],
+    "enforceWarninglist": true,
+    "includeEventTags": true,
+    "publish_timestamp": "14d",
+    "orgs": [
+        "ORGNAME"
+    ],"not_orgs": [
+        "org3"
+    ],
+    "excludeLocalTags": true
+}
