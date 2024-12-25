@@ -33,8 +33,11 @@ This example adds an attribute with the value "malware", type "string", category
 #>
 function New-MISPEventAttribute {
     PARAM(
+      [Parameter(Mandatory = $true)]
       $MISPUrl,
+      [Parameter(Mandatory = $true)]
       $MISPAuthHeader,
+      [Parameter(Mandatory = $true)]
       $MISPEventID,
       $MISPAttribute,
       $MISPAttributeType,

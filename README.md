@@ -55,7 +55,7 @@ sharing_group_id    : 0
 proposal_email_lock : False
 locked              : False
 threat_level_id     : 2
-publish_timestamp   : 0
+last   : 0
 sighting_timestamp  : 0
 disable_correlation : False
 extends_uuid        : 
@@ -118,7 +118,7 @@ Currently, the filter supports some of the main search parameters in the MISP AP
     ],
     "enforceWarninglist": true,
     "includeEventTags": true,
-    "publish_timestamp": "14d",
+    "last": "14d",
     "orgs": [
         "org1",
         "org2"
@@ -168,9 +168,74 @@ This function allows you to create a new tag in a MISP instance.
 $response = New-MISPTag -Name "infextest2" -Colour "#ffffff" -Exportable $true -MISPUrl $MISPUrl -MISPAuthHeader $MISPauthHeader -OrgId 1 -UserId 2 -SelfSigned -LocalOnly $true
 ```
 
+### Get-MISPAttributeFromEvent 
+
+This function allows you to get all attributes from a specific event in a MISP instance.
+
+```powershell
+$Attributes = Get-MISPAttributeFromEvent -MISPUrl $MISPUrl -MISPAuthHeader $MISPAuthHeader -EventID 2015 -SelfSigned
+Trying to get attributes from event with ID: 2015
+$Attributes[0]
+
+id                  : 312469
+event_id            : 1780
+object_id           : 0
+object_relation     : 
+category            : Payload delivery
+type                : text
+value1              : malware
+value2              : 
+to_ids              : False
+uuid                : d29f1e3a-d8ac-4a7c-b148-3bec5ed25a45
+timestamp           : 1734961044
+distribution        : 5
+sharing_group_id    : 0
+comment             : This is a test attribute
+deleted             : False
+disable_correlation : False
+first_seen          : 
+last_seen           : 
+value               : malware
+```
+
+### Invoke-MISPAttributeSearch
+
+This function allows you to search for attributes in a MISP instance. It requires a filter as input.
+
+```powershell
+$filter = @"
+{
+    "value": "malware",
+    "published" : 1,
+    "last": "1d"
+}
+"@
+$return = Invoke-MISPAttributeSearch -MISPUrl $mispurl -MISPAuthHeader $MISPAuthHeader -Filter $filter -SelfSigned
+$return.Attribute
+
+id                  : 312468
+event_id            : 1779
+object_id           : 0
+object_relation     : 
+category            : Payload delivery
+type                : text
+to_ids              : False
+uuid                : fcca162e-8e92-48c0-8f6c-239447f6d749
+timestamp           : 1735149314
+distribution        : 5
+sharing_group_id    : 0
+comment             : This is a test attribute
+deleted             : False
+disable_correlation : False
+first_seen          : 
+last_seen           : 
+value               : malware
+Event               : @{org_id=1; distribution=3; publish_timestamp=1735149604; id=1779; info=Test Event 5555; orgc_id=1; uuid=77813240-0436-4418-ac2c-66ae4261e3d2}
+```
+
 ## Known issues
 
-Error handling is not quite there.
+Error handling is not quite there. Also some of the functions are not fully tested yet, like the `$filter` parameters in general.
 
 ## Future improvements
 

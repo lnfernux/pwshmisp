@@ -29,9 +29,13 @@ This example adds the tag with ID 6789 to the MISP event with ID 12345.
 #>
 function New-MISPEventTag {
     PARAM(
+      [Parameter(Mandatory = $true)]
       $MISPUrl,
+      [Parameter(Mandatory = $true)]
       $MISPAuthHeader,
+      [Parameter(Mandatory = $true)]
       $MISPEventID,
+      [Parameter(Mandatory = $true)]
       $MISPTagId,
       [switch]$LocalOnly,
       [switch]$SelfSigned

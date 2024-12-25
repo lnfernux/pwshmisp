@@ -56,7 +56,9 @@
 function New-MISPTag 
 {
     param (
+        [Parameter(Mandatory = $true)]
         [string]$Name,
+        [Parameter(Mandatory = $true)]
         [string]$Colour,
         [bool]$Exportable = $true,
         [string]$OrgId,
@@ -67,7 +69,9 @@ function New-MISPTag
         [bool]$IsCustomGalaxy = $true,
         [int]$Inherited = 1,
         [bool]$LocalOnly = $false,
+        [Parameter(Mandatory = $true)]
         $MISPUrl,
+        [Parameter(Mandatory = $true)]
         $MISPAuthHeader,
         [switch]$SelfSigned
     )

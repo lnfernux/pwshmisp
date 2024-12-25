@@ -37,7 +37,9 @@ This example creates an event with the name "Test Event", published by "publishe
 #>
 function New-MISPEvent {
     PARAM(
+      [Parameter(Mandatory = $true)]
       $MISPUrl,
+      [Parameter(Mandatory = $true)]
       $MISPAuthHeader,
       $MISPEventPublisher,
       [array]$MISPTagsId,

@@ -17,7 +17,7 @@ A JSON string containing the filter criteria for the search. The filter can incl
 - published: 1 or 0
 - enforceWarninglist: "True" or "False"
 - includeEventTags: "True" or "False"
-- publish_timestamp: timestamp (14d default)
+- last: timestamp (14d default)
 - tags: array of tags to include
 - not_tags: array of tags to exclude
 - org: array of organizations to include
@@ -38,13 +38,16 @@ Invoke-MISPEventSearch -AuthHeader $authHeader -MISPUrl $MISPUrl -Filter $filter
 #>
 function Invoke-MISPEventSearch {
     param(
+      [Parameter(Mandatory = $true)]
       $MISPAuthHeader,
+      [Parameter(Mandatory = $true)]
       $MISPUrl,
+      [Parameter(Mandatory = $true)]
       $Filter,
       [switch]$SelfSigned
     )
     # Create the endpoint
-    $Endpoint = "events/index"
+    $Endpoint = "events/restSearch"
     $MISPUrl = "$MISPUrl/$Endpoint"
     # Create the body of the request - the filter object will contain what we want to search for
     $FilterObject = $Filter | ConvertFrom-Json
@@ -59,8 +62,8 @@ function Invoke-MISPEventSearch {
     # includeEventTags
     $IncludeEventTags = if($FilterObject.includeEventTags -ne $null) { $FilterObject.includeEventTags} else { $null }
 
-    # publish_timestamp
-    $PublishTimestamp = if($FilterObject.publish_timestamp -ne $null) { $FilterObject.publish_timestamp} else { $null }
+    # last
+    $PublishTimestamp = if($FilterObject.last -ne $null) { $FilterObject.last} else { $null }
 
     # Tags
     $Tags = if($FilterObject.tags -ne $null) { $FilterObject.tags} else { $null }

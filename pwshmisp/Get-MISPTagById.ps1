@@ -1,7 +1,10 @@
 function Get-MISPTagById {
     PARAM(
+      [Parameter(Mandatory = $true)]
       $MISPUrl,
+      [Parameter(Mandatory = $true)]
       $MISPAuthHeader,
+      [Parameter(Mandatory = $true)]
       $Id,
       [switch]$SelfSigned
     )

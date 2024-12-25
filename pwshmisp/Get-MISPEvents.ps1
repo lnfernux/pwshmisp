@@ -26,7 +26,9 @@ Get-MISPEvent -AuthHeader $Headers -MISPUrl $MISPUrl
 #>
 function Get-MISPEvents {
     param(
+      [Parameter(Mandatory = $true)]
       $MISPAuthHeader,
+      [Parameter(Mandatory = $true)]
       $MISPUrl,
       [switch]$SelfSigned
     )

@@ -32,7 +32,9 @@ Get-MISPEvent -AuthHeader $Headers -MISPUrl $MISPUrl -MISPOrg $MISPOrg -MISPEven
 #>
 function Get-MISPEvent {
     param(
+      [Parameter(Mandatory = $true)]
       $MISPAuthHeader,
+      [Parameter(Mandatory = $true)]
       $MISPUrl,
       $MISPOrg,
       $MISPEventName,
@@ -46,15 +48,16 @@ function Get-MISPEvent {
     if($MISPAttribute) {
       Write-Host "Trying to get event with attribute: $($MISPAttribute)"
       $Data = @{
-        org = $MISPOrg
         attribute = $MISPAttribute
       }
     } else {
       Write-Host "Trying to get event with title: $($MISPEventName)"
       $Data = @{
-        org = $MISPOrg
         eventinfo = $MISPEventName
       }
+    }
+    if($MISPOrg) {
+      $Data.org = $MISPOrg
     }
     if ($SelfSigned) {
       <# Action to perform if the condition is true #>

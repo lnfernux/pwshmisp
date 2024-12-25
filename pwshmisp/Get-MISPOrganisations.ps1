@@ -19,7 +19,9 @@ The function returns a list of organisations from the MISP instance.
 #>
 function Get-MISPOrganisations {
     param( 
+        [Parameter(Mandatory = $true)]
         $MISPUrl,
+        [Parameter(Mandatory = $true)]
         $MISPAuthHeader,
         [switch]$SelfSigned
     )

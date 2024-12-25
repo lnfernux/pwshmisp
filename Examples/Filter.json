@@ -8,7 +8,7 @@
     ],
     "enforceWarninglist": true,
     "includeEventTags": true,
-    "publish_timestamp": "14d",
+    "last": "14d",
     "orgs": [
         "ORGNAME"
     ],"not_orgs": [

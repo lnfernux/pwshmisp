@@ -13,6 +13,7 @@ $MISPHeader = New-MISPAuthHeader -MISPAuthKey "YOUR_API_KEY"
 #>
 function New-MISPAuthHeader {
     param(
+      [Parameter(Mandatory = $true)]
       $MISPAuthKey
     )
     $Headers = @{
