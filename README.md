@@ -1,4 +1,13 @@
-# PSMISP Module
+# PWSHMISP Module
+
+```
+░       ░░░  ░░░░  ░░░      ░░░  ░░░░  ░░  ░░░░  ░░        ░░░      ░░░       ░░
+▒  ▒▒▒▒  ▒▒  ▒  ▒  ▒▒  ▒▒▒▒▒▒▒▒  ▒▒▒▒  ▒▒   ▒▒   ▒▒▒▒▒  ▒▒▒▒▒  ▒▒▒▒▒▒▒▒  ▒▒▒▒  ▒
+▓       ▓▓▓        ▓▓▓      ▓▓▓        ▓▓        ▓▓▓▓▓  ▓▓▓▓▓▓      ▓▓▓       ▓▓
+█  ████████   ██   ████████  ██  ████  ██  █  █  █████  ███████████  ██  ███████
+█  ████████  ████  ███      ███  ████  ██  ████  ██        ███      ███  ███████
+
+```
 
 This module works as a powershell wrapper for the [MISP OpenAPI](https://www.misp-project.org/openapi/). It allows you to interact with MISP instances using powershell. 
 
