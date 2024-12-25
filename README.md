@@ -16,6 +16,8 @@ $AuthHeader = New-MISPAuthHeader -MISPAuthKey "YOUR_API_KEY"
 
 Example of getting all events from a MISP instance:
 
+The body takes a Powershell-object variable as input - it will convert it to json in the function.
+
 ```powershell
 $URI = "https://misp-instance/events"
 Invoke-MISPRestMethod -Headers $AuthHeader -Method GET -Body $Data -Uri $URI
