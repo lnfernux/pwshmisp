@@ -1,4 +1,4 @@
+v1.0.3 Rename Invoke-MISPAttributeSearch and add enforcewarninglist - tested OK
 v1.0.2 Bugfix for Invoke-MISPEventSearch, added Get-MISPAttributeFromEvent and Invoke-MISPAttributeSearch functions, added mandatory parameters, added more examples for filters, updated README
-
 v1.0.1 Minor update to Get-MISPTagByName.ps1 to output ID properly
 v1.0.0 Initial version
