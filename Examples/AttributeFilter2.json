@@ -1,4 +1,8 @@
 {
     "last": "7d",
-    "published": true
+    "published": true,
+    "enforceWarninglist": true,
+    "tags": [
+        "type:OSINT"
+    ]
 }

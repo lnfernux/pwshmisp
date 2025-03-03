@@ -46,6 +46,9 @@ function Invoke-MISPAttributeSearch {
     # Limit
     $Limit = if($FilterObject.limit -ne $null) { $FilterObject.limit} else { $null }
 
+    # Enforce warninglist
+    $enforceWarningslist = if($FilterObject.enforceWarninglist -ne $null) { $FilterObject.enforceWarninglist} else { $null }
+
     # data object
     $Data = @{
       published = $Published
@@ -58,6 +61,7 @@ function Invoke-MISPAttributeSearch {
       sharinggroup = $SharingGroup
       page = $Page
       limit = $Limit
+      enforceWarninglist = $enforceWarningslist
     }
     if($SelfSigned) {
       $return = Invoke-MISPRestMethod -Headers $MISPAuthHeader -Method "POST" -Body $Data -Uri "$MISPUrl" -SelfSigned
@@ -70,23 +74,5 @@ function Invoke-MISPAttributeSearch {
       Write-Host "No events found"
       return
     }
-    # Filter out unwanted tags
-    if ($NotTags -ne $null) {
-        $return = $return | Where-Object {
-            $includeEvent = $true
-            foreach ($tag in $_.EventTag.Tag) {
-                if ($NotTags -contains $tag.Name.Trim()) {
-                    $includeEvent = $false
-                    break
-                }
-            }
-            $includeEvent
-        }
-    }
-    
-    # Filter out unwanted organizations
-    if ($NotOrgs -ne $null) {
-        $return = $return | Where-Object { $NotOrgs -notcontains $_.Org.Name }
-    }
-    return $return.response
-  }
+    return $return
+}
